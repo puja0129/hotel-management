@@ -1,0 +1,24 @@
+# Hover Styles & Data Seeding Implementation Plan
+
+Based on the feedback, the yellow background on the hovered service cards doesn't look good. We will change this to a lighter, sophisticated hover effect. We also need to ensure all pages (Home, Rooms, Services) show realistic hotel data with actual images.
+
+## Proposed Changes
+
+### 1. Fix Hover Styles for Premium Look
+- **[public/css/style.css](file:///c:/wamp64/www/hotel-management/public/css/style.css)**: We will modify the `.service-item:hover` class.
+  - Remove the solid `var(--primary)` yellow background on hover.
+  - Implement a modern lift effect (`transform: translateY(-5px)`) with a soft, elegant box-shadow.
+  - Apply a subtle gold border to retain brand consistency without overwhelming the card.
+  - Smoothly scale up the hotel service icons (`transform: scale(1.1)`) to provide interactive feedback.
+
+### 2. Populate Real Hotel Data & Images
+The system already has default hotel images (rooms, team members, about sections) located in the `public/img` folder, along with database "Seeders" that link to them.
+- **Run Database Seeders**: We will execute `php artisan migrate:fresh --seed` to completely refresh your local database with default realistic data. 
+- This will automatically populate:
+  - High-quality room data and images (`room-1.jpg`, etc.) for the **Rooms** page.
+  - Elegant service listings for the **Services** page.
+  - Professional team member profiles for the **About/Team** sections.
+
+## Verification Plan
+1. **Visual Testing (Hover)**: Navigate to the `services` page and hover over the "Rooms & Apartments" card to ensure the yellow background is gone and replaced by the sophisticated lift-and-shadow effect.
+2. **Data Testing**: Browse the Home, Rooms, and Services pages to confirm that hotel data (room suites, prices, bed capacities) is rendering successfully with the proper high-quality images.
